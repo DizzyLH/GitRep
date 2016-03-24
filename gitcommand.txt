@@ -12,3 +12,6 @@ git log  #查看提交历史日志
 
 git reset --hard commit_id   #回退到历史版本,如git reset --hard HEAD^
 git reflog   #如果不知道commit_id,可以通过该命令查看命令历史
+
+git 跟踪并管理的是修改，而非文件。
+所以每次修改，必须使用git add命令将修改内容放到暂存区，git commit只负责把暂存区的修改提交，如果没使用git add的额修改，git commit则不会提交。
