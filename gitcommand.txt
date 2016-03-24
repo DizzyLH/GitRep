@@ -4,15 +4,22 @@ git add 文件名   #将文件添加到暂缓区
 git commit 	#将文件提交到仓库（实际就是把暂缓区的所有内容提交到当前分支）
 			-m "本次提交说明"
 git status #展示仓库自上次提交后当前的状态
-git diff 文件名（可以是多个） #查看具体文件的修改内容，在git add之前查看
+git diff 文件名（可以是多个） #查看尚未暂存的修改内容
+git diff --cached   #查看尚未提交的修改
 
 git log  #查看提交历史日志
 #git中，HEAD表示当前版本，HEAD^表示上一个版本,
 #HEAD^^上上个版本，HEAD~100表示上100个版本
 
-git reset --hard commit_id   #回退到历史版本,如git reset --hard HEAD^
+git reset --hard commit_id   #版本回退：回退到某个历史提交版本（全部文件）,如git reset --hard HEAD^
+git reset commit_id filename   #文件回退：某个文件回退到之前提交版本，这时文件被放到了暂存区，
+								#本地工作区文件还没有回退，要接着使用工作区文件回退命令
+git checkout -- filename  #本地工作区文件回退：把文件在工作区的修改全部撤销
+
+
 git reflog   #如果不知道commit_id,可以通过该命令查看命令历史
 
 git 跟踪并管理的是修改，而非文件。
 所以每次修改，必须使用git add命令将修改内容放到暂存区，git commit只负责把暂存区的修改提交，如果没使用git add的额修改，git commit则不会提交。
-git checkout -- readme.txt  #把readme.txt文件在工作区的修改全部撤销
+
+git rm filename  #在版本库中删除该文件
