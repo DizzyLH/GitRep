@@ -15,3 +15,4 @@ git reflog   #如果不知道commit_id,可以通过该命令查看命令历史
 
 git 跟踪并管理的是修改，而非文件。
 所以每次修改，必须使用git add命令将修改内容放到暂存区，git commit只负责把暂存区的修改提交，如果没使用git add的额修改，git commit则不会提交。
+git checkout -- readme.txt  #把readme.txt文件在工作区的修改全部撤销
